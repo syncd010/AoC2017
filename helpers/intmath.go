@@ -1,5 +1,7 @@
 package helpers
 
+import "math"
+
 // MaxInt is the maximum integer
 const MaxInt = int(^uint(0) >> 1)
 
@@ -45,4 +47,9 @@ func Sign(a int) int {
 		return -1
 	}
 	return 0
+}
+
+// IntSqrt returns the squareroot, int only
+func IntSqrt(n int) int {
+	return int(math.Sqrt(float64(n)))
 }
