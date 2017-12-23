@@ -58,23 +58,16 @@ func solvePart1(input []string) int {
 }
 
 func solvePart2(input []string) int {
-	var b, c, d, e, h int
+	var b, c, d, h int
 
 	b = 99*100 + 100000
 	c = b + 17000
 
 	for ; b <= c; b += 17 {
-	loop3:
 		for d = 2; d != b; d++ {
-		loop2:
-			for e = 2; e != b; e++ {
-				if d*e > b { // Optimization added
-					break loop2 // Innermost loop, unnecessary but consistent with the rest
-				}
-				if d*e == b {
-					h++
-					break loop3 // Optimization added
-				}
+			if b%d == 0 {
+				h++
+				break
 			}
 		}
 	}
