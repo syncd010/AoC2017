@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 )
 
 // Check if the error is not null and panic with the message if so
@@ -12,6 +13,24 @@ func Check(err error, message string) {
 		fmt.Println(message)
 		panic(err)
 	}
+}
+
+// Atoi is Atoi without returning errors. Any error causes a panic
+func Atoi(str string) int {
+	res, err := strconv.Atoi(str)
+	Check(err, "Invalid number")
+	return res
+}
+
+// AAtoi is Array Atoi
+func AAtoi(str ...string) []int {
+	res := make([]int, len(str))
+	var err error
+	for i, s := range str {
+		res[i], err = strconv.Atoi(s)
+		Check(err, "Invalid number")
+	}
+	return res
 }
 
 // ReadInput reads the file passed in the args or from the standard input
