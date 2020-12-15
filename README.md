@@ -8,7 +8,6 @@ Notes:
 - This worked with *Go*'s version circa 2017. *Go* is still evolving, so this might rot work in the future;
 - This repo relies on `$GOPATH` being set appropriately, it doesn't use go modules.
 
-
 ## Structure and usage
 Each day's puzzle is contained in a separate directory, with a separate *go* program, associated tests and the day's input (which is the file name `input`).
 
